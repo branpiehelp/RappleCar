@@ -22,6 +22,7 @@ Ultrasonic_handler eye(PIN_TRIGER,PIN_ECHO);
 void setup()
 {
   Serial.begin(9600);
+  mySerial.begin(9600); 
   rapple.init();
   music.init();
   arm.init();

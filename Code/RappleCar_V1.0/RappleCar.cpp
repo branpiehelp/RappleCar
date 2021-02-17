@@ -25,14 +25,14 @@ void RappleCar::init()
 void RappleCar::forwardR(int n)
 {
 	//Serial.println("forwardR");
-	this->mr.set_dir(0);
+	this->mr.set_dir(FD);
 	this->mr.set_speed(n);
 	this->mr.update();
 }
 void RappleCar::forwardL(int n)
 {
 	//Serial.println("forwardL");
-	this->ml.set_dir(0);
+	this->ml.set_dir(FD);
 	this->ml.set_speed(n);
 	this->ml.update();
 }

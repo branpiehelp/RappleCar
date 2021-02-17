@@ -9,10 +9,10 @@
 #define PIN_TRIGER 7
 #define PIN_ECHO 8
 #define PIN_SERVO 9
-#define PIN_ML_V 10 //Motor Left Speed
-#define PIN_MR_V 11 //Motor Right Speed
-#define PIN_ML_D 12 //Motor Left Direction
-#define PIN_MR_D 13 //Motor Right Direction
+#define PIN_MR_V 10 //Motor Right Speed
+#define PIN_ML_V 11 //Motor Left Speed
+#define PIN_MR_D 12 //Motor Right Direction
+#define PIN_ML_D 13 //Motor Left Direction
 
 SoftwareSerial mySerial(5, 6); //블루투스의 Tx, Rx핀을 2번 3번핀으로 설정
 RappleCar rapple(PIN_ML_D,PIN_ML_V,PIN_MR_D,PIN_MR_V);
@@ -22,16 +22,16 @@ Ultrasonic_handler eye(PIN_TRIGER,PIN_ECHO);
 void setup()
 {
   Serial.begin(9600);
-  mySerial.begin(9600); 
+  mySerial.begin(9600);  
   rapple.init();
   music.init();
   arm.init();
   eye.init();
-  //music.note(C,300);
-  //music.note(E,300);
-  //music.note(G,300);
-  //music.note(REST,1000);
-  //music.note(C2,300);  
+  music.note(C,300);
+  music.note(E,300);
+  music.note(G,300);
+  music.note(REST,1000);
+  music.note(C2,300);  
 }
 
 String myCmd="";

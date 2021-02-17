@@ -4,6 +4,8 @@ RAPPLE ROBOT
 ************************************************/
 #ifndef Motor_h
 #define Motor_h
+#define FD 0
+#define BD 1
 
 class Motor{
 private:

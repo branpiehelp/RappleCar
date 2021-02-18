@@ -1,3 +1,7 @@
+/********************************************//** 
+© 2021 branpie.com <branpiehelp@gmail.com>
+Rapple Car
+************************************************/
 #define PIN_MR_V 10 //Motor Left Speed
 #define PIN_ML_V 11 //Motor Right Speed
 #define PIN_MR_D 12 //Motor Left Direction

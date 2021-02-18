@@ -1,6 +1,6 @@
 /********************************************//** 
-BRANPIE All right reserved.
-RAPPLE ROBOT
+© 2021 branpie.com <branpiehelp@gmail.com>
+Rapple Car
 ************************************************/
 #ifndef Servo_handler_h
 #define Servo_handler_h

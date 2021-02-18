@@ -1,6 +1,6 @@
 /********************************************//** 
-BRANPIE All right reserved.
-RAPPLE ROBOT
+© 2021 branpie.com <branpiehelp@gmail.com>
+Rapple Car
 ************************************************/
 #if defined(ARDUINO) && ARDUINO >= 100
   #include "Arduino.h"

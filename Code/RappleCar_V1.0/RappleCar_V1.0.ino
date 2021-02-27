@@ -43,7 +43,8 @@ long int counter=0;
 void loop() {
   arm.update();
   if(counter%30000==0){ //Time tick about 1sec
-    if(eye.update()<10){ //10cm check
+    int tmp=eye.update();
+    if(tmp<10 && tmp>0){ //10cm check
       Serial.println("Siren");
       music.note(C2,300);
     }

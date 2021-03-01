@@ -12,8 +12,9 @@ private:
 	int buzzer_pin;
 	static const float foct[8];
 public:
+	Melody();
 	Melody(int buzzer_pin);
-	void init();
+	void init(int buzzer_pin);
 	void note(int tn, int d);
 };
 #endif

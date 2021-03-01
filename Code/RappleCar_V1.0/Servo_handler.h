@@ -13,8 +13,9 @@ private:
 	float d_angle;
 	bool servo_angle_change;
 public:
-  Servo_handler(int servo_pin);
-  void init(void);
+  	Servo_handler();
+  	Servo_handler(int servo_pin);
+  	void init(int servo_pin);
 	void update(void);
 	void angle(int a);
 };

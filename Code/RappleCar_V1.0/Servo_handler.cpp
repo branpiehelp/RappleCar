@@ -9,18 +9,22 @@ Rapple Car
   #include <pins_arduino.h>
 #endif
 #include "Servo_handler.h"
+Servo_handler::Servo_handler()
+{
+};
 Servo_handler::Servo_handler(int servo_pin)
+{
+	Servo_handler::init(servo_pin);
+};
+void Servo_handler::init(int servo_pin)
 {
     this->servo_pin=servo_pin;
     this->servo_angle=1450;
     this->old_servo_angle=1450;
     this->d_angle=0;
     this->servo_angle_change=false; 
-};
-void Servo_handler::init()
-{
-   pinMode(this->servo_pin, OUTPUT);
-   angle(90); 
+	pinMode(this->servo_pin, OUTPUT);
+   	angle(90); 
 }
 void Servo_handler::update()
 {
@@ -28,12 +32,12 @@ void Servo_handler::update()
 	if(this->servo_angle_change==true){
 		this->d_angle=this->old_servo_angle-this->servo_angle;
 		this->d_angle*=0.18;//Swing speed
-    this->old_servo_angle-=this->d_angle;
-    Serial.println(this->d_angle);
+    	this->old_servo_angle-=this->d_angle;
+    	//Serial.println(this->d_angle);
 		if(abs(this->d_angle)<=1){
 		  this->servo_angle_change=false;
 		  this->old_servo_angle=servo_angle;
-		  Serial.println(this->old_servo_angle);
+		  //Serial.println(this->old_servo_angle);
 		}
 		digitalWrite(this->servo_pin, HIGH);
 		delayMicroseconds(this->old_servo_angle);// Duration of the pusle in microseconds

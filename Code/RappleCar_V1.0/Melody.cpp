@@ -9,12 +9,16 @@ Rapple Car
   #include <pins_arduino.h>
 #endif
 #include "Melody.h"
+Melody::Melody()
+{
+}
 Melody::Melody(int buzzer_pin)
 {
-	this->buzzer_pin=buzzer_pin;
+	Melody::init(buzzer_pin);
 }
-void Melody::init()
+void Melody::init(int buzzer_pin)
 {
+  this->buzzer_pin=buzzer_pin;
 	pinMode(this->buzzer_pin, OUTPUT);
 }
 void Melody::note(int tn, int d)

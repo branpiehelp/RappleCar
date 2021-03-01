@@ -12,8 +12,9 @@ private:
 	long duration;
 	long distance;
 public:
+  Ultrasonic_handler();
   Ultrasonic_handler(int trig_pin, int echo_pin);
-  void init(void);
-	long update(void);
+  void init(int trig_pin, int echo_pin);
+  long update(void);
 };
 #endif

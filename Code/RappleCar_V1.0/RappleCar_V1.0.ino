@@ -18,19 +18,19 @@ Rapple Car
 #define PIN_MR_D 12 //Motor Right Direction
 #define PIN_ML_D 13 //Motor Left Direction
 
-SoftwareSerial mySerial(5, 6); //블루투스의 Tx, Rx핀을 2번 3번핀으로 설정
+SoftwareSerial mySerial(PIN_BT_TX, PIN_BT_RX);
 RappleCar rapple(PIN_ML_D,PIN_ML_V,PIN_MR_D,PIN_MR_V);
-Melody music(PIN_BUZZER);
-Servo_handler arm(PIN_SERVO);
-Ultrasonic_handler eye(PIN_TRIGER,PIN_ECHO);
+Melody music;
+Servo_handler arm;
+Ultrasonic_handler eye;
 void setup()
 {
   Serial.begin(9600);
-  mySerial.begin(9600);  
+  mySerial.begin(38400);  
   rapple.init();
-  music.init();
-  arm.init();
-  eye.init();
+  music.init(PIN_BUZZER);
+  arm.init(PIN_SERVO);
+  eye.init(PIN_TRIGER,PIN_ECHO);
   music.note(C,300);
   music.note(E,300);
   music.note(G,300);
@@ -42,7 +42,7 @@ String myCmd="";
 long int counter=0;
 void loop() {
   arm.update();
-  if(counter%30000==0){ //Time tick about 1sec
+  if(counter++%30000==0){ //Time tick about 1sec
     int tmp=eye.update();
     if(tmp<10 && tmp>0){ //10cm check
       Serial.println("Siren");
@@ -53,14 +53,14 @@ void loop() {
     char tmp;
     tmp=(char)Serial.read();
     myCmd+=tmp;
-    mySerial.write(tmp); //시리얼로 블루투스 AT커멘드 입력가능
+    mySerial.write(tmp); //Serial to BT
     delay(5);
   }
   while(mySerial.available()){
     char tmp;
     tmp=(char)mySerial.read();
     myCmd+=tmp;
-    Serial.write(tmp); //블루투스 커멘드를 시리얼로 모니터링 가능
+    Serial.write(tmp); //BT to Serial
     delay(5);
   }
   if(!myCmd.equals("")){
@@ -96,5 +96,4 @@ void loop() {
       }
   }
   myCmd="";
-  counter++;  
 }

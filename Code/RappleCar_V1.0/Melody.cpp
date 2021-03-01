@@ -1,5 +1,5 @@
 /********************************************//** 
-© 2021 branpie.com <branpiehelp@gmail.com>
+(c) 2021 branpie.com <branpiehelp@gmail.com>
 Rapple Car
 ************************************************/
 #if defined(ARDUINO) && ARDUINO >= 100

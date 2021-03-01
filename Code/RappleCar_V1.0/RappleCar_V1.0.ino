@@ -1,5 +1,5 @@
 /********************************************//** 
-© 2021 branpie.com <branpiehelp@gmail.com>
+(c) 2021 branpie.com <branpiehelp@gmail.com>
 Rapple Car
 ************************************************/
 #include <SoftwareSerial.h>
@@ -25,8 +25,8 @@ Servo_handler arm;
 Ultrasonic_handler eye;
 void setup()
 {
-  Serial.begin(9600);
-  mySerial.begin(38400);  
+  Serial.begin(9600);    //Serial Default Baud Rate
+  mySerial.begin(38400); //Bluetooth 4.0 BLE Default Baud Rate 
   rapple.init();
   music.init(PIN_BUZZER);
   arm.init(PIN_SERVO);
